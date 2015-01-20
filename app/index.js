@@ -174,6 +174,9 @@ module.exports = generators.Base.extend({
       this.mkdir('public/js');
       this.mkdir('public/css');
       this.mkdir('public/img');
+      if (this.options.database === 'sqlite') {
+        this.mkdir('data');
+      }
     }
   },
   install: function () {
