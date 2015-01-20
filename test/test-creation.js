@@ -97,6 +97,10 @@ var runGenerationTest = function (extraFiles, type, engine, preprocessor, coffee
     expectedFiles.push('gulpfile.js');
   }
 
+  if (database === 'sqlite') {
+    expectedFiles.push('data');
+  }
+
   // Test files generation
   this.app.run({}, function () {
     assert.file(expectedFiles);
@@ -442,7 +446,7 @@ describe('Express generator', function () {
     });
   });
 
-  describe('MVC generator with sqlite', function () {
+  describe.only('MVC generator with sqlite', function () {
     var expected = [
       'app/models/index.js'
     ];
