@@ -98,7 +98,8 @@ module.exports = generators.Base.extend({
           'None',
           'MongoDB',
           'MySQL',
-          'PostgreSQL'
+          'PostgreSQL',
+          'sqlite'
         ]
       }];
       this.prompt(prompt, function (response) {
@@ -161,7 +162,7 @@ module.exports = generators.Base.extend({
       this.sourceRoot(path.join(__dirname, 'templates', 'css', stylesheets));
       this.directory('.', 'public/css');
 
-      if (this.options.database === 'mysql' || this.options.database === 'postgresql') {
+      if (this.options.database === 'mysql' || this.options.database === 'postgresql' || this.options.database === 'sqlite') {
         this.copy(path.join(__dirname, 'templates', 'extras', name, 'model-index.' + filetype), 'app/models/index.' + filetype);
       }
       var buildFile = this.options.buildTool === 'grunt' ? 'Gruntfile.js' : 'gulpfile.js';

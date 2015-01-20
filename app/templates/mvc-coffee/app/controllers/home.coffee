@@ -1,7 +1,7 @@
 express  = require 'express'
 router = express.Router()<% if(options.database == 'mongodb'){ %>
 mongoose = require 'mongoose'
-Article  = mongoose.model 'Article'<% } %><% if(options.database == 'mysql' || options.database == 'postgresql'){ %>
+Article  = mongoose.model 'Article'<% } %><% if(options.database == 'mysql' || options.database == 'postgresql' || options.database == 'sqlite'){ %>
 db = require '../models'<% } %>
 
 module.exports = (app) ->
@@ -10,7 +10,7 @@ module.exports = (app) ->
 router.get '/', (req, res, next) ->
 <% if(options.database == 'mongodb'){ %>
   Article.find (err, articles) ->
-    return next(err) if err<% } %><% if(options.database == 'mysql' || options.database == 'postgresql'){ %>
+    return next(err) if err<% } %><% if(options.database == 'mysql' || options.database == 'postgresql' || options.database == 'sqlite'){ %>
   db.Article.findAll().success (articles) -><% } %>
     res.render 'index',
       title: 'Generator-Express MVC'

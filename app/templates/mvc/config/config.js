@@ -11,7 +11,9 @@ var config = {
     port: 3000,<% if(options.database == 'mongodb'){ %>
     db: 'mongodb://localhost/<%= _.slugify(appname) %>-development'<% } %><% if(options.database == 'mysql'){ %>
     db: 'mysql://localhost/<%= _.slugify(appname) %>-development'<% } %><% if(options.database == 'postgresql'){ %>
-    db: 'postgres://localhost/<%= _.slugify(appname) %>-development'<% } %>
+    db: 'postgres://localhost/<%= _.slugify(appname) %>-development'<% } %><% if(options.database == 'sqlite'){ %>
+    db: 'sqlite://localhost/<%= _.slugify(appname) %>-development',
+    storage: path.join(rootPath, 'data/<%= _.slugify(appname) %>-development')<% } %>
   },
 
   test: {
@@ -22,7 +24,9 @@ var config = {
     port: 3000,<% if(options.database == 'mongodb'){ %>
     db: 'mongodb://localhost/<%= _.slugify(appname) %>-test'<% } %><% if(options.database == 'mysql'){ %>
     db: 'mysql://localhost/<%= _.slugify(appname) %>-test'<% } %><% if(options.database == 'postgresql'){ %>
-    db: 'postgres://localhost/<%= _.slugify(appname) %>-test'<% } %>
+    db: 'postgres://localhost/<%= _.slugify(appname) %>-test'<% } %><% } %><% if(options.database == 'sqlite'){ %>
+    db: 'sqlite://localhost/<%= _.slugify(appname) %>-test',
+    storage: path.join(rootPath, 'data/<%= _.slugify(appname) %>-test')<% } %>
   },
 
   production: {
@@ -33,7 +37,9 @@ var config = {
     port: 3000,<% if(options.database == 'mongodb'){ %>
     db: 'mongodb://localhost/<%= _.slugify(appname) %>-production'<% } %><% if(options.database == 'mysql'){ %>
     db: 'mysql://localhost/<%= _.slugify(appname) %>-production'<% } %><% if(options.database == 'postgresql'){ %>
-    db: 'postgres://localhost/<%= _.slugify(appname) %>-production'<% } %>
+    db: 'postgres://localhost/<%= _.slugify(appname) %>-production'<% } %><% } %><% if(options.database == 'sqlite'){ %>
+    db: 'sqlite://localhost/<%= _.slugify(appname) %>-production',
+    storage: path.join(rootPath, 'data/<%= _.slugify(appname) %>-production')<% } %>
   }
 };
 

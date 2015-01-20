@@ -441,4 +441,42 @@ describe('Express generator', function () {
       runGenerationTest.call(this, expected, 'mvc', 'jade', 'less', false, 'mysql', 'grunt', done);
     });
   });
+
+  describe('MVC generator with sqlite', function () {
+    var expected = [
+      'app/models/index.js'
+    ];
+
+    it('creates expected files', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'none', false, 'sqlite', 'grunt', done);
+    });
+
+    it('works with coffee', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'none', true, 'sqlite', 'grunt', done);
+    });
+
+    it('creates expected files with sass', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'sass', false, 'sqlite', 'grunt', done);
+    });
+
+    it('works with coffee and sass', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'sass', false, 'sqlite', 'grunt', done);
+    });
+
+    it('creates expected files with node-sass', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'node-sass', false, 'sqlite', 'grunt', done);
+    });
+
+    it('works with coffee and node-sass', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'node-sass', false, 'sqlite', 'grunt', done);
+    });
+
+    it('creates expected files with less', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'less', false, 'sqlite', 'grunt', done);
+    });
+
+    it('works with coffee and less', function (done) {
+      runGenerationTest.call(this, expected, 'mvc', 'jade', 'less', false, 'sqlite', 'grunt', done);
+    });
+  });
 });
