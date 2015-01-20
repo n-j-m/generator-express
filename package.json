@@ -7,8 +7,8 @@
     "express",
     "scaffold"
   ],
-  "homepage": "https://github.com/petecoop/generator-express",
-  "bugs": "https://github.com/petecoop/generator-express/issues",
+  "homepage": "https://github.com/n-j-m/generator-express",
+  "bugs": "https://github.com/n-j-m/generator-express/issues",
   "author": {
     "name": "petecoop",
     "email": "pete@petecoop.co.uk",
@@ -24,7 +24,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/petecoop/generator-express.git"
+    "url": "https://github.com/n-j-m/generator-express.git"
   },
   "scripts": {
     "test": "mocha"
